@@ -1,0 +1,12 @@
+[project]
+name = "fhir"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "fhir-resources>=7.0.0",
+    "httpx>=0.28.1",
+    "newpy>=1.1.16",
+    "rich>=15.0.0",
+    "tqdm>=4.67.3",
+]
