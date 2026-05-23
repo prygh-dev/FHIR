@@ -18,8 +18,8 @@ DATA_DIR = "data/"
 # TODO explain params
 params = {
     "_count": "10",
-    "_revinclude": "Observation:subject",
-    "_has:Observation:subject:code": "http://loinc.org|85354-9",
+    "_revinclude": "Observation:subject", #
+    "_has:Observation:subject:code": "http://loinc.org|85354-9", #skips patients that don't have any observations with this code (blood pressure)
 }
 
 # list of bundles. Each bundle contains Blood Pressure info for up to 10 patients
