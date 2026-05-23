@@ -56,9 +56,9 @@ else:
 # print_json(data=bundles_httpx[0], default=str)
 
 total_entries = sum(len(bundle.get("entry", [])) for bundle in bundles_httpx)
-with ( dbm.open("patient_lookup.db", "c") as db1,
-       dbm.open("observation_lookup.db", "c") as db2,
-       dbm.open("patient_meta.db", "c") as db3,
+with ( dbm.open(DATA_DIR + "patient_lookup.db", "c") as db1,
+       dbm.open(DATA_DIR + "observation_lookup.db", "c") as db2,
+       dbm.open(DATA_DIR + "patient_meta.db", "c") as db3,
        tqdm(total=total_entries, desc="Parsing FHIR Resources", unit="res") as pbar
     ):
     print("constructing db files")
@@ -126,8 +126,8 @@ def get_patient_name(patient_resource):
 
 
 
-with dbm.open("patient_lookup.db", "r") as db1, dbm.open("observation_lookup.db", "r") as db2, dbm.open(
-        "patient_meta.db", "r") as db3:
+with dbm.open(DATA_DIR + "patient_lookup.db", "r") as db1, dbm.open(DATA_DIR + "observation_lookup.db", "r") as db2, dbm.open(
+        DATA_DIR + "patient_meta.db", "r") as db3:
     # Show counts of each resource type
     print(f"# of patients with BP observations: {len(db1)}")
     print(f"total # of observations: {len(db2)}")
